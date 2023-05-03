@@ -1,4 +1,3 @@
-import time
 import torch
 import torch
 import pickle
@@ -22,7 +21,7 @@ def main() :
     train_loader = dset_loaders['train']
     test_loader = dset_loaders['test']
 
-    # Initialize u-net
+    # Initialize UNet
     unet = UNet(3, 1)
     lossFunc = BCEWithLogitsLoss()
     opt = Adam(unet.parameters(), lr=BASE_LR)
@@ -31,7 +30,6 @@ def main() :
     H = {"train_loss": [], "test_loss": []}
 
     # Train 
-    startTime = time.time()
     for e in range(NUM_EPOCHS):
         unet.train()
         totalTrainLoss = 0
@@ -69,9 +67,6 @@ def main() :
         pickle.dump(H, fp)
         print('dictionary saved successfully to file')
 
-    endTime = time.time()
-    print("[INFO] total time taken to train the model: {:.2f}s".format(
-        endTime - startTime))
 
 if __name__ == "__main__":
     main()
