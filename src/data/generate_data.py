@@ -53,57 +53,63 @@ class SegmentationDataset(Dataset):
         self.img_paths = img_paths
         
         if transform == 'bigaug':
-          self.transform = bigaug_transforms
+            self.transform = bigaug_transforms
         if transform == 'base':
-          self.transform = transforms.Compose([
-            transforms.ToTensor()
-          ])
+            self.transform = transforms.Compose([
+                transforms.ToTensor()
+            ])
         if transform == 'autoaugment':
-          self.transform = A.load("models/fasterautoaugment/policy/final.json")
+            self.transform = A.load("models/fasterautoaugment/policy/final.json")
 
     def __getitem__(self, index):
+        # Get mask
         coco = self.coco
         img_id = self.ids[index]
         ann_ids = coco.getAnnIds(imgIds=img_id)
         anns = coco.loadAnns(ann_ids)
         mask = torch.LongTensor(np.max(np.stack([coco.annToMask(ann) * ann["category_id"] 
                                                  for ann in anns]), axis=0)).unsqueeze(0)
+        
+        # Get image
         img_path_name = coco.loadImgs(img_id)[0]['file_name']
         img_label = img_path_name.split('_')[0]
         path = os.path.join(img_label, img_path_name)
         img = Image.open(os.path.join(self.root, path))
 
+        # Transform mask and image
         if self.transformlabel == 'bigaug':
-          img = transforms.PILToTensor()(img)
-          img = self.resize(img)
-          img = torch.unsqueeze(img, 3)
-          mask = self.resize(mask)
-          mask = torch.unsqueeze(mask, 3)
+            img = transforms.PILToTensor()(img)
+            img = self.resize(img)
+            mask = self.resize(mask)
+            
+            img = torch.unsqueeze(img, 3)
+            mask = torch.unsqueeze(mask, 3)
 
-          subject = tio.Subject(
-              image = tio.ScalarImage(tensor=img),
-              mask = tio.LabelMap(tensor=mask)
-          )
-          subject_transform = self.transform(subject)
-          img = subject_transform.get_images_dict(intensity_only=False)['image'].data.squeeze(3)
-          mask = subject_transform.get_images_dict(intensity_only=False)['mask'].data.squeeze(3)
+            subject = tio.Subject(
+                image = tio.ScalarImage(tensor=img),
+                mask = tio.LabelMap(tensor=mask)
+            )
+
+            subject_transform = self.transform(subject)
+            img = subject_transform.get_images_dict(intensity_only=False)['image'].data.squeeze(3)
+            mask = subject_transform.get_images_dict(intensity_only=False)['mask'].data.squeeze(3)
         
         if self.transformlabel == 'autoaugment':
-          mask = np.asarray(self.resize(mask)).astype(np.float32)
-          img = np.asarray(self.resize(img))
+            mask = np.asarray(self.resize(mask)).astype(np.float32)
+            img = np.asarray(self.resize(img))
 
-          image = np.asarray(img).astype(np.float32)
-          image = np.stack((image, image, image), 2)
-          mask = mask.squeeze(0)
+            image = np.asarray(img).astype(np.float32)
+            image = np.stack((image, image, image), 2)
+            mask = mask.squeeze(0)
 
-          transformed = self.transform(image=image, mask=mask)
-          img = transformed["image"]
-          mask = transformed["mask"]
+            transformed = self.transform(image=image, mask=mask)
+            img = transformed["image"]
+            mask = transformed["mask"]
 
         if self.transformlabel == 'base':
-          img = self.resize(img)
-          mask = self.resize(mask)
-          img = self.transform(img)
+            img = self.resize(img)
+            mask = self.resize(mask)
+            img = self.transform(img)
 
         if img.shape[0] == 1:
             img = torch.cat([img]*3)

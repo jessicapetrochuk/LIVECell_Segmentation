@@ -1,32 +1,15 @@
 ## From https://github.com/kari-jg/BigAug_torchio/blob/0e3876609a5071bf166bc9a16a1f799800c42824/bigAug_transforms.py 
-import math
+
 import torch
 import numpy as np
-import torchio as tio
-import albumentations as A
 import scipy.ndimage as ndi
-import matplotlib.pyplot as plt
-import torchvision.transforms as transforms
-
-from PIL import Image
-from tqdm.auto import tqdm
-from pycocotools import coco
-from torch.optim import Adam
-from functools import partial
-from torchvision import transforms
 from collections import defaultdict
-from torch.utils.data import Dataset
-from matplotlib.pyplot import figure
 from typing import Union, Tuple, Dict
-from torch.nn import BCEWithLogitsLoss
-from torch.utils.data import DataLoader
-from sklearn.model_selection import train_test_split
 
 from torchio.typing import TypeData, TypeTripletFloat, TypeSextetFloat
 from torchio.data.subject import Subject
 from torchio.transforms.intensity_transform import IntensityTransform
 from torchio.transforms.augmentation.random_transform import RandomTransform
-
 
 
 class RandomSharpen(RandomTransform, IntensityTransform):
@@ -118,6 +101,7 @@ class Sharpen(IntensityTransform):
         tensor = torch.as_tensor(blurred)
         return tensor 
 
+
 class RandomBrightnessShift(RandomTransform, IntensityTransform):
     """Random Brightness shift for BigAug, randomly shift the intensity level with magnitude ranging between [a,b]
     """
@@ -155,6 +139,7 @@ class BrightnessShift(IntensityTransform):
                 transformed_tensors.append(img)
             image.set_data(torch.stack(transformed_tensors))
         return subject
+
 
 class RandomIntensityPerturbation(RandomTransform, IntensityTransform):
     """Random Intensity perturbation for BigAug, randomly shift the intensity level with a magnitude ranging between [a,b]

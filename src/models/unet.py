@@ -4,39 +4,6 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-import os
-import time
-import math
-import torch
-import typing
-import random
-import pickle
-import numpy as np
-import torchio as tio
-import albumentations as A
-import scipy.ndimage as ndi
-import matplotlib.pyplot as plt
-import torchvision.transforms as transforms
-
-from PIL import Image
-from tqdm.auto import tqdm
-from pycocotools import coco
-from torch.optim import Adam
-from functools import partial
-from torchvision import transforms
-from collections import defaultdict
-from torch.utils.data import Dataset
-from matplotlib.pyplot import figure
-from typing import Union, Tuple, Dict
-from torch.nn import BCEWithLogitsLoss
-from torch.utils.data import DataLoader
-from sklearn.model_selection import train_test_split
-
-from torchio.typing import TypeData, TypeTripletFloat, TypeSextetFloat
-from torchio.data.subject import Subject
-from torchio.transforms.intensity_transform import IntensityTransform
-from torchio.transforms.augmentation.random_transform import RandomTransform
-
 class DoubleConv(nn.Module):
     def __init__(self, in_channels, out_channels, mid_channels=None):
         super().__init__()
@@ -96,6 +63,7 @@ class OutConv(nn.Module):
     def forward(self, x):
         return self.conv(x)
     
+
 class UNet(nn.Module):
     def __init__(self, n_channels, n_classes, bilinear=False):
         super(UNet, self).__init__()
@@ -127,15 +95,3 @@ class UNet(nn.Module):
         x = self.up4(x, x1)
         logits = self.outc(x)
         return logits
-
-    def use_checkpointing(self):
-        self.inc = torch.utils.checkpoint(self.inc)
-        self.down1 = torch.utils.checkpoint(self.down1)
-        self.down2 = torch.utils.checkpoint(self.down2)
-        self.down3 = torch.utils.checkpoint(self.down3)
-        self.down4 = torch.utils.checkpoint(self.down4)
-        self.up1 = torch.utils.checkpoint(self.up1)
-        self.up2 = torch.utils.checkpoint(self.up2)
-        self.up3 = torch.utils.checkpoint(self.up3)
-        self.up4 = torch.utils.checkpoint(self.up4)
-        self.outc = torch.utils.checkpoint(self.outc)
