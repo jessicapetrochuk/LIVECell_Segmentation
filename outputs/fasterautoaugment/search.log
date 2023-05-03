@@ -1,0 +1,60 @@
+[2023-04-19 11:51:53,654][pytorch_lightning.utilities.seed][INFO] - Global seed set to 42
+[2023-04-19 11:51:55,197][autoalbument.faster_autoaugment.datamodule][INFO] - Preprocessing transform:
+Compose([
+  Normalize(always_apply=False, p=1.0, mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225], max_pixel_value=255),
+  ToTensorV2(always_apply=True, p=1.0, transpose_mask=True),
+], p=1.0, bbox_params=None, keypoint_params=None, additional_targets={})
+[2023-04-19 11:51:55,446][pytorch_lightning.utilities.distributed][INFO] - GPU available: True, used: True
+[2023-04-19 11:51:55,447][pytorch_lightning.utilities.distributed][INFO] - TPU available: None, using: 0 TPU cores
+[2023-04-19 11:51:55,447][pytorch_lightning.accelerators.accelerator_connector][INFO] - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[2023-04-19 11:52:38,660][numexpr.utils][INFO] - NumExpr defaulting to 4 threads.
+[2023-04-19 11:52:39,292][pytorch_lightning.core.lightning][INFO] - 
+  | Name         | Type                      | Params
+-----------------------------------------------------------
+0 | main_model   | SemanticSegmentationModel | 14.6 M
+1 | policy_model | Policy                    | 6.4 K 
+-----------------------------------------------------------
+14.6 M    Trainable params
+0         Non-trainable params
+14.6 M    Total params
+[2023-04-19 12:06:55,255][autoalbument.callbacks.monitor_average_parameter_change][INFO] - Average Parameter change at epoch 0: 0.005762.
+[2023-04-19 12:06:55,648][autoalbument.callbacks.save_policy][INFO] - Policy is saved to /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/epoch_0.json. /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/latest.json now also contains this policy.
+[2023-04-19 12:21:18,490][autoalbument.callbacks.monitor_average_parameter_change][INFO] - Average Parameter change at epoch 1: 0.006169.
+[2023-04-19 12:21:18,885][autoalbument.callbacks.save_policy][INFO] - Policy is saved to /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/epoch_1.json. /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/latest.json now also contains this policy.
+[2023-04-19 12:35:38,913][autoalbument.callbacks.monitor_average_parameter_change][INFO] - Average Parameter change at epoch 2: 0.003345.
+[2023-04-19 12:35:39,350][autoalbument.callbacks.save_policy][INFO] - Policy is saved to /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/epoch_2.json. /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/latest.json now also contains this policy.
+[2023-04-19 12:49:59,009][autoalbument.callbacks.monitor_average_parameter_change][INFO] - Average Parameter change at epoch 3: 0.003806.
+[2023-04-19 12:49:59,446][autoalbument.callbacks.save_policy][INFO] - Policy is saved to /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/epoch_3.json. /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/latest.json now also contains this policy.
+[2023-04-19 13:04:14,425][autoalbument.callbacks.monitor_average_parameter_change][INFO] - Average Parameter change at epoch 4: 0.003054.
+[2023-04-19 13:04:14,814][autoalbument.callbacks.save_policy][INFO] - Policy is saved to /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/epoch_4.json. /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/latest.json now also contains this policy.
+[2023-04-19 13:18:27,371][autoalbument.callbacks.monitor_average_parameter_change][INFO] - Average Parameter change at epoch 5: 0.004303.
+[2023-04-19 13:18:27,781][autoalbument.callbacks.save_policy][INFO] - Policy is saved to /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/epoch_5.json. /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/latest.json now also contains this policy.
+[2023-04-19 13:32:46,282][autoalbument.callbacks.monitor_average_parameter_change][INFO] - Average Parameter change at epoch 6: 0.004087.
+[2023-04-19 13:32:46,712][autoalbument.callbacks.save_policy][INFO] - Policy is saved to /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/epoch_6.json. /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/latest.json now also contains this policy.
+[2023-04-19 13:47:12,593][autoalbument.callbacks.monitor_average_parameter_change][INFO] - Average Parameter change at epoch 7: 0.004787.
+[2023-04-19 13:47:12,994][autoalbument.callbacks.save_policy][INFO] - Policy is saved to /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/epoch_7.json. /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/latest.json now also contains this policy.
+[2023-04-19 14:01:39,392][autoalbument.callbacks.monitor_average_parameter_change][INFO] - Average Parameter change at epoch 8: 0.005347.
+[2023-04-19 14:01:39,789][autoalbument.callbacks.save_policy][INFO] - Policy is saved to /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/epoch_8.json. /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/latest.json now also contains this policy.
+[2023-04-19 14:16:03,028][autoalbument.callbacks.monitor_average_parameter_change][INFO] - Average Parameter change at epoch 9: 0.002484.
+[2023-04-19 14:16:03,421][autoalbument.callbacks.save_policy][INFO] - Policy is saved to /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/epoch_9.json. /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/latest.json now also contains this policy.
+[2023-04-19 14:30:25,678][autoalbument.callbacks.monitor_average_parameter_change][INFO] - Average Parameter change at epoch 10: 0.000961.
+[2023-04-19 14:30:26,094][autoalbument.callbacks.save_policy][INFO] - Policy is saved to /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/epoch_10.json. /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/latest.json now also contains this policy.
+[2023-04-19 14:44:50,885][autoalbument.callbacks.monitor_average_parameter_change][INFO] - Average Parameter change at epoch 11: 0.003729.
+[2023-04-19 14:44:51,281][autoalbument.callbacks.save_policy][INFO] - Policy is saved to /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/epoch_11.json. /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/latest.json now also contains this policy.
+[2023-04-19 14:59:22,336][autoalbument.callbacks.monitor_average_parameter_change][INFO] - Average Parameter change at epoch 12: 0.002786.
+[2023-04-19 14:59:22,728][autoalbument.callbacks.save_policy][INFO] - Policy is saved to /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/epoch_12.json. /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/latest.json now also contains this policy.
+[2023-04-19 15:13:55,866][autoalbument.callbacks.monitor_average_parameter_change][INFO] - Average Parameter change at epoch 13: 0.000978.
+[2023-04-19 15:13:56,280][autoalbument.callbacks.save_policy][INFO] - Policy is saved to /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/epoch_13.json. /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/latest.json now also contains this policy.
+[2023-04-19 15:28:41,336][autoalbument.callbacks.monitor_average_parameter_change][INFO] - Average Parameter change at epoch 14: 0.001970.
+[2023-04-19 15:28:41,733][autoalbument.callbacks.save_policy][INFO] - Policy is saved to /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/epoch_14.json. /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/latest.json now also contains this policy.
+[2023-04-19 15:43:16,814][autoalbument.callbacks.monitor_average_parameter_change][INFO] - Average Parameter change at epoch 15: 0.001234.
+[2023-04-19 15:43:17,248][autoalbument.callbacks.save_policy][INFO] - Policy is saved to /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/epoch_15.json. /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/latest.json now also contains this policy.
+[2023-04-19 15:58:05,963][autoalbument.callbacks.monitor_average_parameter_change][INFO] - Average Parameter change at epoch 16: 0.001639.
+[2023-04-19 15:58:06,379][autoalbument.callbacks.save_policy][INFO] - Policy is saved to /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/epoch_16.json. /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/latest.json now also contains this policy.
+[2023-04-19 16:13:00,790][autoalbument.callbacks.monitor_average_parameter_change][INFO] - Average Parameter change at epoch 17: 0.002461.
+[2023-04-19 16:13:01,202][autoalbument.callbacks.save_policy][INFO] - Policy is saved to /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/epoch_17.json. /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/latest.json now also contains this policy.
+[2023-04-19 16:27:31,098][autoalbument.callbacks.monitor_average_parameter_change][INFO] - Average Parameter change at epoch 18: 0.001416.
+[2023-04-19 16:27:31,496][autoalbument.callbacks.save_policy][INFO] - Policy is saved to /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/epoch_18.json. /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/latest.json now also contains this policy.
+[2023-04-19 16:41:56,995][autoalbument.callbacks.monitor_average_parameter_change][INFO] - Average Parameter change at epoch 19: 0.002804.
+[2023-04-19 16:41:57,397][autoalbument.callbacks.save_policy][INFO] - Policy is saved to /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/epoch_19.json. /content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/outputs/2023-04-19/11-51-48/policy/latest.json now also contains this policy.
+[2023-04-19 16:41:58,684][pytorch_lightning.utilities.distributed][INFO] - Saving latest checkpoint...
