@@ -1,1 +1,4 @@
 /data
+/outputs/models/*
+/outputs/losses/*
+/outputs/fasterautoaugment/policy/*

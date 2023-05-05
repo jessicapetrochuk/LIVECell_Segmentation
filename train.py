@@ -61,9 +61,9 @@ def main() :
         print("Train loss: {:.6f}, Test loss: {:.4f}".format(
             avgTrainLoss, avgTestLoss))
 
-        torch.save(unet.state_dict(), f"../models/unet_base_new_model_epoch_{e}.pt") # Change to appropriate name
+        torch.save(unet.state_dict(), f"/outputs/models/unet_base_new_model_epoch_{e}.pt") # Change to appropriate name
 
-    with open('/content/drive/MyDrive/School/Harvard/NEUROBIO240/Project/Losses/losses_base.pkl', 'wb') as fp:
+    with open('/outputs/losses/losses_base.pkl', 'wb') as fp:
         pickle.dump(H, fp)
         print('dictionary saved successfully to file')
 

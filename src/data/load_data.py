@@ -19,6 +19,6 @@ def load_data():
             for set, annotations in train_test_dict.items()}
 
     train_dataset = SegmentationDataset(root = 'data/train', annotations = train_annotations, transform=TRANSFORM)
-    test_dataset = SegmentationDataset(root = 'data/test', annotations = test_annotations, transform=TRANSFORM)
+    test_dataset = SegmentationDataset(root = 'data/test', annotations = test_annotations, transform="base")
 
     return dsets, train_dataset, test_dataset

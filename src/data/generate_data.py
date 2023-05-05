@@ -13,6 +13,7 @@ from torch.utils.data import Dataset
 
 from .bigaug import RandomSharpen, RandomBrightnessShift, RandomIntensityPerturbation
 
+## From https://github.com/kari-jg/BigAug_torchio/blob/0e3876609a5071bf166bc9a16a1f799800c42824/bigAug_transforms.py 
 bigaug_transforms = tio.Compose([
         tio.ToCanonical(),
         tio.ZNormalization(), 
@@ -59,7 +60,7 @@ class SegmentationDataset(Dataset):
                 transforms.ToTensor()
             ])
         if transform == 'autoaugment':
-            self.transform = A.load("models/fasterautoaugment/policy/final.json")
+            self.transform = A.load("outputs/fasterautoaugment/policy/final.json")
 
     def __getitem__(self, index):
         # Get mask
