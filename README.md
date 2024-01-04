@@ -1,4 +1,4 @@
-# LIVECell_Segmentation
+# LIVECell Segmentation - Improving Generalizability Using State-of-the-Art Data Augmentation Techniques Big Aug and Faster AutoAugment 
 
 ## Training
 In order to train the model make sure to complete the following:
